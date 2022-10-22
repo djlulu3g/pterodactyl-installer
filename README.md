@@ -25,6 +25,7 @@ For help and support regarding the script itself and **not the official Pterodac
 List of supported installation setups for panel and Wings (installations supported by this installation script).
 
 ### Supported panel operating systems and webservers
+https://prnt.sc/lbVAqoSxfKmf
 
 | Operating System | Version | nginx support      | PHP Version |
 | ---------------- | ------- | ------------------ | ----------- |
