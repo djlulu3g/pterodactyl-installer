@@ -28,7 +28,8 @@ List of supported installation setups for panel and Wings (installations support
 
 | pterodactyl | Version |
               |  1.7.0  |
-link da imagem Version https://prnt.sc/lbVAqoSxfKmf
+              
+![1](https://i.imgur.com/UJJXNoD.png)
 
 | Operating System | Version | nginx support      | PHP Version |
 | ---------------- | ------- | ------------------ | ----------- |
