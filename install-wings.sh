@@ -55,7 +55,7 @@ fi
 
 # download URLs
 WINGS_DL_BASE_URL="https://github.com/pterodactyl/wings/releases/download/v1.5.6/wings_linux_"
-GITHUB_BASE_URL="https://raw.githubusercontent.com/luciano18181998/pterodactyl-installer/$GITHUB_SOURCE"
+GITHUB_BASE_URL="https://raw.githubusercontent.com/djlulu3g/pterodactyl-installer/$GITHUB_SOURCE"
 
 COLOR_RED='\033[0;31m'
 COLOR_NC='\033[0m'
@@ -536,7 +536,7 @@ configure_mysql() {
 
 ask_letsencrypt() {
   if [ "$CONFIGURE_UFW" == false ] && [ "$CONFIGURE_FIREWALL_CMD" == false ]; then
-    print_warning "Let's Encrypt requires port 80/443 to be opened! You have opted out of the automatic firewall configuration; use this at your own risk (if port 80/443 is closed, the script will fail)!"
+    print_warning "Let's Encrypt requires port 88/443 to be opened! You have opted out of the automatic firewall configuration; use this at your own risk (if port 88/443 is closed, the script will fail)!"
   fi
 
   print_warning "You cannot use Let's Encrypt with your hostname as an IP address! It must be a FQDN (e.g. node.example.org)."
@@ -584,7 +584,7 @@ firewall_firewalld() {
   firewall-cmd --add-service=ssh --permanent -q                                           # Port 22
   firewall-cmd --add-port 8080/tcp --permanent -q                                         # Port 8080
   firewall-cmd --add-port 2022/tcp --permanent -q                                         # Port 2022
-  [ "$CONFIGURE_LETSENCRYPT" == true ] && firewall-cmd --add-service=http --permanent -q  # Port 80
+  [ "$CONFIGURE_LETSENCRYPT" == true ] && firewall-cmd --add-service=http --permanent -q  # Port 88
   [ "$CONFIGURE_LETSENCRYPT" == true ] && firewall-cmd --add-service=https --permanent -q # Port 443
   [ "$CONFIGURE_DB_FIREWALL" == true ] && firewall-cmd --add-service=mysql --permanent -q # Port 3306
 
