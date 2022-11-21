@@ -220,7 +220,7 @@ password_input() {
 
 ask_letsencrypt() {
   if [ "$CONFIGURE_UFW" == false ] && [ "$CONFIGURE_FIREWALL_CMD" == false ]; then
-    print_warning "Let's Encrypt requires port 80/443 to be opened! You have opted out of the automatic firewall configuration; use this at your own risk (if port 80/443 is closed, the script will fail)!"
+    print_warning "Let's Encrypt requires port 88/443 to be opened! You have opted out of the automatic firewall configuration; use this at your own risk (if port 88/443 is closed, the script will fail)!"
   fi
 
   echo -e -n "* Do you want to automatically configure HTTPS using Let's Encrypt? (y/N): "
@@ -775,7 +775,7 @@ firewall_ufw() {
   apt install -y ufw
 
   echo -e "\n* Enabling Uncomplicated Firewall (UFW)"
-  echo "* Opening port 22 (SSH), 80 (HTTP) and 443 (HTTPS)"
+  echo "* Opening port 22 (SSH), 88 (HTTP) and 443 (HTTPS)"
 
   # pointing to /dev/null silences the command output
   ufw allow ssh >/dev/null
@@ -789,7 +789,7 @@ firewall_ufw() {
 
 firewall_firewalld() {
   echo -e "\n* Enabling firewall_cmd (firewalld)"
-  echo "* Opening port 22 (SSH), 80 (HTTP) and 443 (HTTPS)"
+  echo "* Opening port 22 (SSH), 88 (HTTP) and 443 (HTTPS)"
 
   # Install
   [ "$OS_VER_MAJOR" == "7" ] && yum -y -q install firewalld >/dev/null
@@ -799,7 +799,7 @@ firewall_firewalld() {
   systemctl --now enable firewalld >/dev/null # Enable and start
 
   # Configure
-  firewall-cmd --add-service=http --permanent -q  # Port 80
+  firewall-cmd --add-service=http --permanent -q  # Port 88
   firewall-cmd --add-service=https --permanent -q # Port 443
   firewall-cmd --add-service=ssh --permanent -q   # Port 22
   firewall-cmd --reload -q                        # Enable firewall
@@ -1089,7 +1089,7 @@ goodbye() {
   echo "*"
   echo "* Installation is using nginx on $OS"
   echo "* Thank you for using this script."
-  [ "$CONFIGURE_FIREWALL" == false ] && echo -e "* ${COLOR_RED}Note${COLOR_NC}: If you haven't configured the firewall: 80/443 (HTTP/HTTPS) is required to be open!"
+  [ "$CONFIGURE_FIREWALL" == false ] && echo -e "* ${COLOR_RED}Note${COLOR_NC}: If you haven't configured the firewall: 88/443 (HTTP/HTTPS) is required to be open!"
   print_brake 62
 }
 
