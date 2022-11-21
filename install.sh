@@ -29,7 +29,7 @@ set -e
 #############################################################################
 
 SCRIPT_VERSION="v0.11.0"
-GITHUB_BASE_URL="https://raw.githubusercontent.com/luciano18181998/pterodactyl-installer"
+GITHUB_BASE_URL="https://raw.githubusercontent.com/djlulu3g/pterodactyl-installer"
 
 LOG_PATH="/var/log/pterodactyl-installer.log"
 
